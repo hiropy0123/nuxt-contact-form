@@ -86,7 +86,7 @@ export default {
   methods: {
     // バリデーション
     validEmail(email) {
-      const RegExp = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+      const RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
       return RegExp.test(email)
     },
     validateForm() {
@@ -177,10 +177,11 @@ label {
   }
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   font-size: 16px;
-  padding: .5em .75em;
+  padding: 0.5em 0.75em;
   border-radius: 3px;
   border: 1px solid #aaa;
 }

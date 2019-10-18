@@ -26,7 +26,6 @@
           .btn-return(@click="close") 閉じる
 </template>
 
-
 <script>
 import { mapGetters } from 'vuex'
 
@@ -64,7 +63,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
 .contact-confirm {
   position: fixed;
@@ -81,7 +79,7 @@ export default {
     width: 100%;
     height: 100%;
     display: block;
-    background: rgba(255,255,255,.95);
+    background: rgba(255, 255, 255, 0.95);
   }
   .modal {
     position: relative;
@@ -139,14 +137,14 @@ export default {
   background: #6fafd9;
   border: 0;
   padding: 1em;
-  border-radius: .75em;
+  border-radius: 0.75em;
   font-size: 3.6vw;
   margin: 1em auto;
   width: 90%;
   max-width: 400px;
   @media (min-width: 768px) {
-      font-size: 16px;
-    }
+    font-size: 16px;
+  }
   &:hover {
     cursor: pointer;
   }
@@ -163,7 +161,7 @@ export default {
   &::before {
     content: '＞';
     display: inline-block;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
   @media (min-width: 768px) {
     font-size: 14px;

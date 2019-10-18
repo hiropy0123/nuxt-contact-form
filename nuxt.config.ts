@@ -1,7 +1,6 @@
-import pkg from './package'
-require('dotenv').config()
+import { Configuration } from '@nuxt/types'
 
-export default {
+const config: Configuration = {
   mode: 'universal',
   srcDir: 'app',
 
@@ -9,14 +8,14 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'contact form',
     htmlAttrs: {
       lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: '' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
@@ -36,6 +35,12 @@ export default {
    */
   plugins: [],
 
+  buildModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module',
+    '@nuxt/typescript-build'
+  ],
+
   /*s
    ** Nuxt.js modules
    */
@@ -46,11 +51,6 @@ export default {
     '@nuxtjs/bulma',
     '@nuxtjs/dotenv'
   ],
-  env: {
-    WP_REST_API_BASE_URL: process.env.WP_REST_API_BASE_URL,
-    WPUSER: process.env.WPUSER,
-    APPLICATION_PASSWORD: process.env.APPLICATION_PASSWORD
-  },
   /*
    ** Axios module configuration
    */
@@ -73,16 +73,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
   }
 }
+
+export default config

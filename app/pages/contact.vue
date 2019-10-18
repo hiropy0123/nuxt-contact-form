@@ -47,13 +47,17 @@ export default {
       const TOKEN = window.btoa(`${USER}:${PASSWORD}`)
       const axiosConfig = {
         headers: {
-          'Authorization': `Basic ${TOKEN}`,
+          Authorization: `Basic ${TOKEN}`,
           'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         }
       }
 
       this.$axios
-        .post('/contact-form-7/v1/contact-forms/5/feedback/', formData, axiosConfig)
+        .post(
+          '/contact-form-7/v1/contact-forms/5/feedback/',
+          formData,
+          axiosConfig
+        )
         .then(response => {
           console.log(response)
           this.responseData = response.data
@@ -64,13 +68,13 @@ export default {
     },
     // Conver to JSON Object to application/x-www-form-urlencoded
     convertJsontoUrlencoded(obj) {
-      let str = [];
-      for (let key in obj) {
+      const str = []
+      for (const key in obj) {
         if (obj.hasOwnProperty(key)) {
-            str.push(encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]))
+          str.push(encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]))
         }
       }
-      return str.join("&");
+      return str.join('&')
     }
   }
 }
